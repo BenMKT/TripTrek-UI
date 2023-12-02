@@ -2,3 +2,5 @@
 // Example
 // ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
+// Feel free to modify any code above
+
