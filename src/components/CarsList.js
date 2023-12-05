@@ -2,11 +2,11 @@ import React, {
   useRef, useState, useEffect,
 } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../styles/carsList.css';
 import { v4 as uuidv4 } from 'uuid';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
 import CarItem from './CarItem';
+import '../styles/carsList.css';
 
 const CarsList = (props) => {
   // const { cars } = props;
