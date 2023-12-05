@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+.points {
+  margin: auto;
+  font-weight: 700;
+  color: darkgray;
+  font-family: cursive;
+}
