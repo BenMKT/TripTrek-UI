@@ -1,0 +1,93 @@
+.carsItem-list {
+  display: flex;
+  flex-direction: row; /* Make the list vertical */
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  overflow: hidden;
+  overflow-x: scroll;
+  transition: transform 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* just make scrollbar invisible */
+}
+
+/* show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: none;
+}
+
+.link-to-detail {
+  text-decoration: none;
+}
+
+.list-container {
+  display: flex;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.button-right {
+  padding: 1rem 2.5rem 1rem 1rem;
+  border-radius: 45% 0 0 45%;
+  margin: auto;
+  background: goldenrod;
+  color: white;
+  font-weight: 700;
+}
+
+.button-left {
+  padding: 1rem 1rem 1rem 2.5rem;
+  border-radius: 0 45% 45% 0;
+  margin: auto;
+  background: goldenrod;
+  color: white;
+  font-weight: 700;
+}
+
+.button-left:hover,
+.button-right:hover {
+  opacity: 0.8;
+}
+
+.button-left:active,
+.button-right:active {
+  background-color: red;
+}
+
+.button-left:focus,
+.button-right:focus {
+  background-color: purple;
+  outline: 0.1rem;
+}
+
+.button-left:disabled,
+.button-right:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.container-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+header {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header > h1 {
+  font-weight: 900;
+}
+
+header > p {
+  color: darkgray;
+  font-weight: 600;
+}
