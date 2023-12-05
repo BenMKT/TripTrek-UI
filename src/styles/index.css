@@ -8,3 +8,15 @@
   color: darkgray;
   font-family: cursive;
 }
+
+.nav {
+  width: 20%;
+}
+
+#details {
+  width: 80%;
+}
+
+.container-root {
+  display: flex;
+}
