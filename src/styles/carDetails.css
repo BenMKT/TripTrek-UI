@@ -47,10 +47,13 @@ strong {
   row-gap: 2rem;
 }
 
+.car-features > .card-body {
+  padding: 0;
+}
+
 .links > button {
-  border-radius: 45%;
   width: 10rem;
-  margin-left: 50%;
+  align-self: flex-end;
 }
 
 #rounded-arrow {
