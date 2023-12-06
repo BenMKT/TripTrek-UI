@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import carImg from '../assets/images/car.png';
+import ReserveCar from './ReserveCar';
 import '../styles/carDetails.css';
 
 const DetailsPage = () => (
@@ -50,12 +51,7 @@ const DetailsPage = () => (
               </Link>
               <strong>Image</strong>
             </div>
-            <Button variant="primary">
-              <i className="bi bi-save2" />
-              Reserve
-              {' '}
-              <em id="rounded-arrow"><i className="bi bi-chevron-right" /></em>
-            </Button>
+            <ReserveCar/>
           </div>
         </Card.Body>
       </Card>
