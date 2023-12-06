@@ -8,7 +8,7 @@ import carImg from '../assets/images/car.png';
 import '../styles/carDetails.css';
 
 const DetailsPage = () => (
-  <Container className='details-container'>
+  <Container className="details-container">
     <div>
       <Card className="img-container">
         <Card.Img variant="top" src={carImg} alt="car image" />
@@ -42,7 +42,7 @@ const DetailsPage = () => (
             {' '}
             Representative
           </Card.Text>
-          <div className='links'>
+          <div className="links">
             <div>
               <Link to="/">
                 DISCOVER MORE MODELS
@@ -61,11 +61,11 @@ const DetailsPage = () => (
       </Card>
     </div>
     <Link
-          to='/'
-          className="link-back"
-        >
-          <i className="bi bi-caret-left" />
-        </Link>
+      to="/"
+      className="link-back"
+    >
+      <i className="bi bi-caret-left" />
+    </Link>
   </Container>
 );
 
