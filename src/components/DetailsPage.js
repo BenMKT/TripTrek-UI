@@ -8,7 +8,7 @@ import carImg from '../assets/images/car.png';
 import '../styles/carDetails.css';
 
 const DetailsPage = () => (
-  <Container className='details-container'>
+  <Container className="details-container">
     <div>
       <Card className="img-container">
         <Card.Img variant="top" src={carImg} alt="car image" />
@@ -38,17 +38,17 @@ const DetailsPage = () => (
         </ListGroup>
         <Card.Body>
           <Card.Text>
-            <bold>5.9% APR</bold>
+            <strong>5.9% APR</strong>
             {' '}
             Representative
           </Card.Text>
-          <div className='links'>
+          <div className="links">
             <div>
               <Link to="/">
                 DISCOVER MORE MODELS
                 <i className="bi bi-chevron-compact-right" />
               </Link>
-              <bold>Image</bold>
+              <strong>Image</strong>
             </div>
             <Button variant="primary">
               <i className="bi bi-save2" />
@@ -61,11 +61,11 @@ const DetailsPage = () => (
       </Card>
     </div>
     <Link
-          to='/'
-          className="link-back"
-        >
-          <i className="bi bi-caret-left" />
-        </Link>
+      to="/"
+      className="link-back"
+    >
+      <i className="bi bi-caret-left" />
+    </Link>
   </Container>
 );
 

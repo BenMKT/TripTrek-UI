@@ -6,6 +6,7 @@ import Root from './root/Root';
 import MainPage from './components/MainPage';
 import ErrorPage from './components/ErrorPage';
 import DetailsPage from './components/DetailsPage';
+import ToDeleteList from './components/ListToDelete';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: '/details',
         element: <DetailsPage />,
+      },
+      {
+        path: '/to_delete',
+        element: <ToDeleteList />,
       },
     ],
   },
