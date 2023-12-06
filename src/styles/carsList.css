@@ -1,6 +1,7 @@
 
 @media screen and (min-width: 500px) and (max-width: 900px) {}
-@media screen and (min-width: 900px) { 
+
+@media screen and (min-width: 900px) {
   .carsItem-list {
     display: flex;
     flex-direction: row; /* Make the list vertical */
