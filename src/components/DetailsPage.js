@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import carImg from '../assets/images/car.png';
+import ReserveCar from './ReserveCar';
 import '../styles/carDetails.css';
 
 const DetailsPage = () => (
@@ -38,7 +39,7 @@ const DetailsPage = () => (
         </ListGroup>
         <Card.Body>
           <Card.Text>
-            <bold>5.9% APR</bold>
+            <strong>5.9% APR</strong>
             {' '}
             Representative
           </Card.Text>
@@ -48,14 +49,9 @@ const DetailsPage = () => (
                 DISCOVER MORE MODELS
                 <i className="bi bi-chevron-compact-right" />
               </Link>
-              <bold>Image</bold>
+              <strong>Image</strong>
             </div>
-            <Button variant="primary">
-              <i className="bi bi-save2" />
-              Reserve
-              {' '}
-              <em id="rounded-arrow"><i className="bi bi-chevron-right" /></em>
-            </Button>
+            <ReserveCar/>
           </div>
         </Card.Body>
       </Card>
