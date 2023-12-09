@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.points {
+  margin: auto;
+  font-weight: 700;
+  color: darkgray;
+  font-family: cursive;
+}
+
+.nav {
+  width: 20%;
+}
+
+#details {
+  width: 80%;
+}
+
+.container-root {
+  display: flex;
+}
