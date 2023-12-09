@@ -7,6 +7,9 @@ import MainPage from './components/MainPage';
 import ErrorPage from './components/ErrorPage';
 import DetailsPage from './components/DetailsPage';
 import ToDeleteList from './components/ListToDelete';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import { AuthProvider } from './utils/AuthContext';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const router = createBrowserRouter([
@@ -27,12 +30,22 @@ const router = createBrowserRouter([
         path: '/to_delete',
         element: <ToDeleteList />,
       },
+      {
+        path:'/login',
+        element: <Login />
+      },
+      {
+        path:'/sign-up',
+        element: <SignUp />
+      }
     ],
   },
 ]);
 const App = () => (
   <Container>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </Container>
 
 );
