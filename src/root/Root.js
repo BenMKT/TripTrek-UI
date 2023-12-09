@@ -4,7 +4,9 @@ import Navigation from '../components/Navigation';
 
 const Root = () => (
   <div className="container-root">
-    <Navigation />
+    <div className="nav">
+      <Navigation />
+    </div>
     <div id="details">
       <Outlet />
     </div>
