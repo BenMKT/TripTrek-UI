@@ -39,10 +39,12 @@ export const AuthProvider = ({ children }) => {
     try {
       setError('');
       setLoading(true);
-      const response = await axios.post('https://railsApi.com/signup', {
-        full_name: fullName,
-        email,
-        password,
+      const response = await axios.post('http://127.0.0.1:3000/users', { 
+        user: {
+            username: fullName,
+            email,
+            password,
+        } 
       });
 
       setUser(response.data);

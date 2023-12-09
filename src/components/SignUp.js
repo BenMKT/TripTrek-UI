@@ -10,6 +10,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(''); 
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -27,9 +28,11 @@ const SignUp = () => {
 
       // Call the signup function from the authentication context
       await signup(fullName, email, password);
+
+      setSuccessMessage('Account created successfully!');
       
       // Redirect to the home page upon successful signup
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       setError(error.message);
     } finally {
@@ -43,6 +46,7 @@ const SignUp = () => {
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {successMessage && <Alert variant="success">{successMessage}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="fullName">
               <Form.Label>Full Name</Form.Label>
