@@ -8,6 +8,8 @@ import ErrorPage from './components/ErrorPage';
 import DetailsPage from './components/DetailsPage';
 import ToDeleteList from './components/ListToDelete';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Login from './root/Login';
+import Signup from './root/CreateAccount';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: '/details',
         element: <DetailsPage />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/signup',
+        element: <Signup />,
       },
       {
         path: '/to_delete',

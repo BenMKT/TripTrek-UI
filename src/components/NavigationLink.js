@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const NavigationLink = ({ label, path, action }) => {
-  const user = 'ali';
+  const user = null;
   const { admin: isAdmin } = user ?? {};
 
   // Validate if the user is admin to display Add and Delete links
