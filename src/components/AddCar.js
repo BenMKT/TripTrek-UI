@@ -35,9 +35,9 @@ const AddCar = () => {
           apr,
         }
       }))
-      if (!isLoading) {
-        navigate('/')
-      } 
+      // if (!isLoading) {
+      //   navigate('/')
+      // } 
     } catch (error) {
       setError(`Failed to add a new car: ${error.message}`);
     }
@@ -48,7 +48,7 @@ const AddCar = () => {
       <Card className="w-100" style={{ maxWidth: '600px' }}>
         <Card.Body>
           <h2 className="text-center mb-4">Add New Car</h2>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="photo">
             <Form.Label>Photo URL</Form.Label>
