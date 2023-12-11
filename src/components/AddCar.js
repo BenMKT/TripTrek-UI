@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, Col } from 'react-bootstrap';
-import axios from 'axios';
+import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { addACar } from '../utils/fetchApi';
+import { useNavigate } from 'react-router';
 
 const AddCar = () => {
   const [photo, setPhoto] = useState('');
@@ -11,34 +13,33 @@ const AddCar = () => {
   const [amountPayable, setAmountPayable] = useState('');
   const [duration, setDuration] = useState('');
   const [apr, setApr] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+
+  const { isLoading, error} = useSelector((store) => store.cars)
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      setError('');
-      setLoading(true);
-
-      // Send a POST request to the server to add a new car
-      await axios.post('https://your-api-endpoint.com/cars', {
-        photo,
-        model,
-        description,
-        finance_fee: financeFee,
-        purchase_fee: purchaseFee,
-        amount_payable: amountPayable,
-        duration,
-        apr,
-        // Add other attributes as needed
-      });
-
-      // Handle success, e.g., redirect to a different page or show a success message
+      dispatch(addACar({
+        car: {
+          photo,
+          model,
+          description,
+          finance_fee: financeFee,
+          purchase_fee: purchaseFee,
+          amount_payable: amountPayable,
+          duration,
+          apr,
+        }
+      }))
+      if (!isLoading) {
+        navigate('/')
+      } 
     } catch (error) {
       setError(`Failed to add a new car: ${error.message}`);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -50,7 +51,7 @@ const AddCar = () => {
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="photo">
-              <Form.Label>Photo URL</Form.Label>
+            <Form.Label>Photo URL</Form.Label>
               <Form.Control type="text" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
             </Form.Group>
             <Form.Group controlId="model">
@@ -62,7 +63,7 @@ const AddCar = () => {
               <Form.Control as="textarea" rows={3} value={description} onChange={(e) => setDescription(e.target.value)} required />
             </Form.Group>
             {/* Add more form groups for other attributes */}
-            <Form.Row>
+            <Row>
               <Col>
                 <Form.Group controlId="financeFee">
                   <Form.Label>Finance Fee</Form.Label>
@@ -75,7 +76,7 @@ const AddCar = () => {
                   <Form.Control type="number" value={purchaseFee} onChange={(e) => setPurchaseFee(e.target.value)} required />
                 </Form.Group>
               </Col>
-            </Form.Row>
+            </Row>
             <Form.Group controlId="amountPayable">
               <Form.Label>Amount Payable</Form.Label>
               <Form.Control type="number" value={amountPayable} onChange={(e) => setAmountPayable(e.target.value)} required />
@@ -88,7 +89,7 @@ const AddCar = () => {
               <Form.Label>APR</Form.Label>
               <Form.Control type="text" value={apr} onChange={(e) => setApr(e.target.value)} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100 mt-3" type="submit">
+            <Button disabled={isLoading} className="w-100 mt-3" type="submit">
               Add Car
             </Button>
           </Form>
