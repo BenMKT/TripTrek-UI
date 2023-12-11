@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, Row, Col, Alert } from 'react-bootstrap';
+import {
+  Form, Button, Card, Row, Col, Alert,
+} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addACar } from '../utils/fetchApi';
-import { useNavigate } from 'react-router';
 
 const AddCar = () => {
   const [photo, setPhoto] = useState('');
@@ -13,14 +14,10 @@ const AddCar = () => {
   const [amountPayable, setAmountPayable] = useState('');
   const [duration, setDuration] = useState('');
   const [apr, setApr] = useState('');
-  const [message, setMessage] = useState('')
 
-  const { isLoading, error} = useSelector((store) => store.cars)
-  const  user  = useSelector((store)=>store.user)
+  const { isLoading, error, message } = useSelector((store) => store.cars);
 
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,11 +32,11 @@ const AddCar = () => {
           amount_payable: amountPayable,
           duration,
           apr,
-        }
-      }))
-      //setMessage('Car added')
+        },
+      }));
+      // clean the form
     } catch (error) {
-      setError(`Failed to add a new car: ${error.message}`);
+      setError(error);
     }
   };
 
@@ -52,7 +49,7 @@ const AddCar = () => {
           {message && <Alert variant="info">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="photo">
-            <Form.Label>Photo URL</Form.Label>
+              <Form.Label>Photo URL</Form.Label>
               <Form.Control type="text" value={photo} onChange={(e) => setPhoto(e.target.value)} required />
             </Form.Group>
             <Form.Group controlId="model">

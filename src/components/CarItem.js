@@ -2,25 +2,23 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import carImg from '../assets/images/car.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/carItem.css';
 
-const CarItem = (props) =>
-  // const { car } = props;
-  (
-    // car && (
-    (
+const CarItem = (props) => {
+  const { car } = props;
+  return (
+    car && (
+      (
       <Card className="car-item">
         <div className="circle-container">
-          <Card.Img variant="top" src={carImg} alt="car image" />
+          <Card.Img variant="top" src={car.photo} alt="car image" />
         </div>
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{car.model}</Card.Title>
           <em className="points">....................</em>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card &rsquos; s content.
+            {car.description}
           </Card.Text>
           <ul className="social-media">
             <li>
@@ -41,15 +39,16 @@ const CarItem = (props) =>
           </ul>
         </Card.Body>
       </Card>
-    )
-  );
+      )
+    ));
+};
 
-// CarItem.propTypes = {
-//   car: PropTypes.shape ({
-//     // model: PropTypes.string,
-//     // color: PropTypes.string,
-//     // year: PropTypes.number
-//   })
-// };
+CarItem.propTypes = {
+  car: PropTypes.shape({
+    photo: PropTypes.string,
+    model: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+};
 
 export default CarItem;

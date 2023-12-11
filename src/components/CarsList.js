@@ -5,45 +5,51 @@ import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import CarItem from './CarItem';
+import { fetchCars } from '../utils/fetchApi';
 import '../styles/carsList.css';
 
-const CarsList = (props) => {
-  // const { cars } = props;
-  // const dispatch = useDispatch();
+const CarsList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
+  const { cars, isLoading, error } = useSelector((store) => store.cars);
+
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
   const [isRightDisabled, setIsRightDisabled] = useState(false);
   const listContainerRef = useRef(null);
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    const button = buttonRef.current;
-    const listContainer = listContainerRef.current;
-    const handleScroll = () => {
-      setIsLeftDisabled(listContainer.scrollLeft === 0);
-      setIsRightDisabled(
-        listContainer.scrollLeft
+    if (cars.length) {
+      const button = buttonRef.current;
+      const listContainer = listContainerRef.current;
+      const handleScroll = () => {
+        setIsLeftDisabled(listContainer.scrollLeft === 0);
+        setIsRightDisabled(
+          listContainer.scrollLeft
         >= listContainer.scrollWidth
         - listContainer.clientWidth - button.offsetWidth,
-      );
-    };
-    listContainer.addEventListener('scroll', handleScroll);
-    return () => {
-      listContainer.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+        );
+      };
+      listContainer.addEventListener('scroll', handleScroll);
+      return () => {
+        listContainer.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [car.length]);
 
-  // const listCars = cars.map((car) => (
-  //     <li key={uuidv4()}
-  //            className='itemCar'>
-  //         <NavLink
-  //               className="link-to-details"
-  //             to='/details'
-  //         >
-  //             <CarItem car={car}/>
-  //         </NavLink>
-  //     </li>
-  // ))
+  const listCars = cars.map((car) => (
+    <li key={uuidv4()} className="itemCar">
+      <NavLink className="link-to-details" to="/details">
+        <CarItem car={car} />
+      </NavLink>
+    </li>
+  ));
 
   const scrollLeft = () => {
     if (listContainerRef.current) {
@@ -57,14 +63,13 @@ const CarsList = (props) => {
     }
   };
 
-  return (
-    <Container className="container-main">
-      <header>
-        <h1>LATEST MODELS</h1>
-        <p>Please select a Car</p>
-      </header>
-      <em className="points">.........................</em>
-      {/* <ul>{listCars}</ul> */}
+  let content;
+  if (isLoading) {
+    content = <div>Is loading...</div>;
+  } else if (error) {
+    content = <div>something went wrong</div>;
+  } else if (cars.length) {
+    content = (
       <div className="list-container" id="list-container">
         <Button
           variant="warning"
@@ -80,31 +85,7 @@ const CarsList = (props) => {
           id="carsItem-list"
           ref={listContainerRef}
         >
-          <li className="itemCar">
-            <NavLink to="/details">
-              <CarItem />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/details">
-              <CarItem />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/details">
-              <CarItem />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/details">
-              <CarItem />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/details">
-              <CarItem />
-            </NavLink>
-          </li>
+          {listCars}
         </ul>
         <Button
           variant="warning"
@@ -115,7 +96,19 @@ const CarsList = (props) => {
           <i className="bi bi-caret-right" />
         </Button>
       </div>
+    );
+  } else {
+    content = <div>No car yet</div>;
+  }
 
+  return (
+    <Container className="container-main">
+      <header>
+        <h1>LATEST MODELS</h1>
+        <p>Please select a Car</p>
+      </header>
+      <em className="points">.........................</em>
+      {content}
     </Container>
   );
 };

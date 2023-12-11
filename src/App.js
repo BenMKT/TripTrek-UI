@@ -4,8 +4,6 @@ import {
   BrowserRouter, Routes, Route, useLocation,
 } from 'react-router-dom';
 import axios from 'axios';
-import { Container } from 'react-bootstrap';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 // import Root from './root/Root';
 import MainPage from './components/MainPage';
 // import ErrorPage from './components/ErrorPage';
