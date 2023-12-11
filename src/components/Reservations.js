@@ -1,9 +1,7 @@
-const Reservations = () => {
-    return ( 
-        <div>
-            reservations
-        </div>
-     );
-}
- 
+const Reservations = () => (
+  <div>
+    reservations
+  </div>
+);
+
 export default Reservations;

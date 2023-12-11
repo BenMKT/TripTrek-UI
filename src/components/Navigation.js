@@ -88,7 +88,7 @@ const Navigation = () => {
                 <li
                   className="sidebar-link"
                   style={{
-                    display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',marginTop:40,backgroundColor:'InfoBackground'
+                    display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 40, backgroundColor: 'InfoBackground',
                   }}
                   onClick={handleLogout}
                 >
