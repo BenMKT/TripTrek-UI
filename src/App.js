@@ -26,14 +26,6 @@ const router = createBrowserRouter([
         element: <DetailsPage />,
       },
       {
-        path: '/login',
-        element: <Login />,
-      },
-      {
-        path: '/signup',
-        element: <Signup />,
-      },
-      {
         path: '/to_delete',
         element: <ToDeleteList />,
       },
