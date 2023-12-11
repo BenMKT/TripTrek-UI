@@ -1,26 +1,49 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const fetchCars = createAsyncThunk('cars/fetchCars',
-  async (thunkApi) => thunkApi);
-
-const addACar = createAsyncThunk('cars/addACar', async (car, thunkAPI) => {
-  const url = `http://localhost:3000/api/v1/cars`;
+const fetchCars = createAsyncThunk('cars/fetchCars', async (thunkAPI) => {
+  const url = 'http://localhost:3000/api/v1/cars';
   try {
-    //console.log(thunkAPI.getState())
     const { user } = thunkAPI.getState();
-    console.log(user)
     const headers = {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${user.auth.token}`, 
+      Authorization: `${user.auth.token}`,
     };
-    console.log(user.auth.token.split('.').length)
-    const response = await axios.post(url, car, { headers });
+    const response = await axios.get(url, { headers });
     return response.data;
   } catch (error) {
-    console.log(error)
     return thunkAPI.rejectWithValue(`something went wrong: ${error.response.data}`);
   }
 });
 
-export { fetchCars, addACar };
+const addACar = createAsyncThunk('cars/addACar', async (car, thunkAPI) => {
+  const url = 'http://localhost:3000/api/v1/cars';
+  try {
+    const { user } = thunkAPI.getState();
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `${user.auth.token}`,
+    };
+    const response = await axios.post(url, car, { headers });
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(`something went wrong: ${error.response.data}`);
+  }
+});
+
+const removeACar = createAsyncThunk('cars/removeACar', async (carId, thunkAPI) => {
+  const url = `http://localhost:3000/api/v1/cars/${carId}`;
+  try {
+    const { user } = thunkAPI.getState();
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `${user.auth.token}`,
+    };
+    const response = await axios.delete(url, carId, { headers });
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(`something went wrong: ${error.response}`);
+  }
+});
+
+export { fetchCars, addACar, removeACar };
