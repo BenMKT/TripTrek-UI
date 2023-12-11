@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col, Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addACar } from '../utils/fetchApi';
 import { useNavigate } from 'react-router';
@@ -13,8 +13,10 @@ const AddCar = () => {
   const [amountPayable, setAmountPayable] = useState('');
   const [duration, setDuration] = useState('');
   const [apr, setApr] = useState('');
+  const [message, setMessage] = useState('')
 
   const { isLoading, error} = useSelector((store) => store.cars)
+  const  user  = useSelector((store)=>store.user)
 
   const navigate = useNavigate();
 
@@ -35,9 +37,7 @@ const AddCar = () => {
           apr,
         }
       }))
-      // if (!isLoading) {
-      //   navigate('/')
-      // } 
+      //setMessage('Car added')
     } catch (error) {
       setError(`Failed to add a new car: ${error.message}`);
     }
@@ -49,6 +49,7 @@ const AddCar = () => {
         <Card.Body>
           <h2 className="text-center mb-4">Add New Car</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {message && <Alert variant="info">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="photo">
             <Form.Label>Photo URL</Form.Label>
