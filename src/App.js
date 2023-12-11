@@ -7,6 +7,7 @@ import MainPage from './components/MainPage';
 import ErrorPage from './components/ErrorPage';
 import DetailsPage from './components/DetailsPage';
 import ToDeleteList from './components/ListToDelete';
+import AddCar from './components/AddCar';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Login from './root/Login';
 import Signup from './root/CreateAccount';
@@ -24,6 +25,18 @@ const router = createBrowserRouter([
       {
         path: '/details',
         element: <DetailsPage />,
+      },
+      {
+        path:'/add_car',
+        element: <AddCar />
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/signup',
+        element: <Signup />,
       },
       {
         path: '/to_delete',
