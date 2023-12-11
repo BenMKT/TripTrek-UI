@@ -14,11 +14,11 @@ const Signup = () => {
     e.preventDefault();
     if (username && email) {
       dispatch(signupUser({
-        "user":{ 
-          "username": username, 
-          "email": email,
-          "password":123456 
-        }
+        user: {
+          username,
+          email,
+          password: 123456,
+        },
       }));
       navigate('/login');
     } else {

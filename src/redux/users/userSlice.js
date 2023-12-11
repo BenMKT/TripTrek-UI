@@ -12,9 +12,9 @@ export const signupUser = createAsyncThunk('user/signupUser', async (user, { rej
 
 export const loginUser = createAsyncThunk('user/loginUser', async (username) => {
   const response = await axios.post('http://localhost:3000/users/sign_in', {
-    "user": {
-      "username": username
-    }
+    user: {
+      username,
+    },
   });
   return response;
 });
