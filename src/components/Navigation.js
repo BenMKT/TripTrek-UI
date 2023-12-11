@@ -1,118 +1,93 @@
-import React, { useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { Outlet, Link } from 'react-router-dom';
-import {
-  FaTwitter, FaFacebookF, FaVine, FaPinterestP,
-  FaBars, FaTimes,
-} from 'react-icons/fa';
-import { TiSocialGooglePlus } from 'react-icons/ti';
-import { logout } from '../redux/users/userSlice';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.webp';
-import '../styles/navigation.css';
+import '../styles/navigation.scss';
+import NavigationLink from './NavigationLink';
+
+const links = [
+  { label: 'Home', path: '/' },
+  { label: 'Reserve', path: '/reserve' },
+  { label: 'My reservations', path: '/myReservations' },
+  { label: 'Add', path: '/add' },
+  { label: 'Delete', path: '/delete' },
+  { label: 'Login', path: '/login' },
+];
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  const [activeNav, setActiveNav] = useState('/');
-  const navRef = useRef();
-  const showNavbar = () => {
-    navRef.current.classList.toggle('responsive');
+  const [open, setOpen] = useState(false);
+  const user = 'ali';
+
+  const closeNavbar = () => {
+    setOpen(false);
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-    localStorage.removeItem('username');
-    window.location.href = '/home';
+  const handleNavLinkClick = () => {
+    if (open) {
+      closeNavbar();
+    }
   };
 
   return (
-    <>
-      {' '}
-      <button className="nav_btn" type="button" onClick={showNavbar}>
-        <FaBars />
-      </button>
-      <div ref={navRef} className="sidebar_container_items">
-        <div className="sidebar_container flex">
-          <button className="nav_btn nav_btn_close" type="button" onClick={showNavbar}>
-            <FaTimes />
-          </button>
-          <div className="sidebar_container-uperhead flex">
-            <div className="sidebar_container-logo"><img src={logo} alt="logo" /></div>
-            <div className="sidebar_container-list">
-              <ul className="sidebar_list">
-                <li className="sidebar-link">
-                  <Link
-                    onClick={() => setActiveNav('home')}
-                    className={activeNav === 'home' ? 'active' : ''}
-                    to="/home"
-                  >
-                    Cars
-                  </Link>
-                </li>
-                <li className="sidebar-link">
-                  <Link
-                    onClick={() => setActiveNav('reserveform')}
-                    className={activeNav === 'reserveform' ? 'active' : ''}
-                    to="/reserveform"
-                  >
-                    Reserve
-                  </Link>
-                </li>
-                <li className="sidebar-link">
-                  <Link
-                    onClick={() => setActiveNav('myreservations')}
-                    className={activeNav === 'myreservations' ? 'active' : ''}
-                    to="/myreservations"
-                  >
-                    Reservations
-                  </Link>
-                </li>
-                <li className="sidebar-link">
-                  <Link
-                    onClick={() => setActiveNav('addCar')}
-                    className={activeNav === 'addCar' ? 'active' : ''}
-                    to="/addCar"
-                  >
-                    Add Car
-                  </Link>
-                </li>
-                <li className="sidebar-link">
-                  <Link
-                    onClick={() => setActiveNav('delete')}
-                    className={activeNav === 'delete' ? 'active' : ''}
-                    to="/to_delete"
-                  >
-                    Delete Car
-                  </Link>
-                </li>
+    <nav className="navbar">
+      <div className="nav-container">
+        <div className="nav-group">
+          <div className="nav-header flex-md-column">
+            <button
+              data-testid="navbar-toggler-button"
+              className="navbar-toggler-button"
+              type="button"
+              onClick={() => setOpen(!open)}
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
 
-                <li
-                  className="sidebar-link"
-                  style={{
-                    display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',marginTop:40,backgroundColor:'InfoBackground'
-                  }}
-                  onClick={handleLogout}
-                >
-                  logout
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="sidbar_footer flex ">
-            <div className="sidebar_socials flex">
-              <FaTwitter />
-              <FaFacebookF />
-              <TiSocialGooglePlus />
-              <FaVine />
-              <FaPinterestP />
-            </div>
-            <small>&copy; 2023 </small>
-          </div>
+            {user && (
+              <div className="user-name order-md-1">
+                <h3 className="welcome mb-0 fw-bolder">
+                  Welcome,
+                  {' '}
+                  {user}
+                </h3>
+              </div>
+            )}
 
-          <Outlet />
+            <Link className="nav-logo d-flex justify-content-center" to="/">
+              <img className="logo" src={logo} alt="logo" />
+            </Link>
+          </div>
+          <div
+            data-testid="navbar-collapse"
+            className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}
+          >
+            <ul className="navbar-nav">
+              {links.map((link) => (
+                <NavigationLink
+                  key={link.label}
+                  label={link.label}
+                  path={link.path}
+                  action={handleNavLinkClick}
+                />
+              ))}
+
+              {user && (
+                <li>
+                  <button type="button" className="nav-link logout-button">
+                    Log out
+                  </button>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
 
+        <div className="credits">
+          <small> &copy; 2023 - All rights reserved</small>
+        </div>
       </div>
-    </>
+    </nav>
   );
 };
+
 export default Navigation;

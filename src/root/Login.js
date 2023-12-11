@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { loginUser } from '../redux/users/userSlice';
 import '../styles/login.css';
 
 const Login = () => {
