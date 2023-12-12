@@ -40,9 +40,10 @@ const removeACar = createAsyncThunk('cars/removeACar', async (carId, thunkAPI) =
       'Content-Type': 'application/json',
       Authorization: `${user.auth.token}`,
     };
-    const response = await axios.delete(url, carId, { headers });
+    const response = await axios.delete(url, { headers });
     return response.data;
   } catch (error) {
+    console.log(error)
     return thunkAPI.rejectWithValue(`something went wrong: ${error.response}`);
   }
 });
