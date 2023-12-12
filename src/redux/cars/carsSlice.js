@@ -45,6 +45,7 @@ const carsSlice = createSlice({
         state.isLoading = false;
         const cars = action.payload;
         state.cars = cars;
+        state.error = ''
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.isLoading = false;

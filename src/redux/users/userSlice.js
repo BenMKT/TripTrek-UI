@@ -49,6 +49,7 @@ const userSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = 'succeeded';
+        console.log(action.payload.headers.authorization)
         state.auth.token = action.payload.headers.authorization; // Store the token in the auth field
         state.user = action.payload.data;
       })

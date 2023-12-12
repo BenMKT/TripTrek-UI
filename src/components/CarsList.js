@@ -47,7 +47,6 @@ const CarsList = () => {
 
   const listCars = cars.map((car) => (
     <li key={uuidv4()} className="itemCar">
-      {/* <NavLink className="link-to-details" to={{pathname: '/details', state:{car}}} > */}
       <NavLink
         className="link-to-details"
         to="/details"
