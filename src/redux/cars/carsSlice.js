@@ -33,6 +33,7 @@ const carsSlice = createSlice({
       .addCase(removeACar.fulfilled, (state, action) => {
         state.isLoading = false;
         state.cars = state.cars.filter((car) => car.id !== action.payload);
+        state.error = ''
       })
       .addCase(removeACar.rejected, (state, action) => {
         state.isLoading = false;
@@ -55,3 +56,4 @@ const carsSlice = createSlice({
 });
 
 export default carsSlice.reducer;
+export const arrCars = (state) => state.cars.cars;

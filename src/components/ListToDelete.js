@@ -1,12 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import ItemToDelete from './ItemToDelete';
+import { fetchCars } from '../utils/fetchApi';
+import { arrCars } from '../redux/cars/carsSlice';
 import '../styles/itemToDelete.css';
 
 const ToDeleteList = () => {
-  const { cars, isLoading, error } = useSelector((store) => store.cars);
+  const { isLoading, error } = useSelector((store) => store.cars);
+  const cars = useSelector(arrCars)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchCars())
+  },[dispatch])
+
   const listOfCars = cars.map((car) => (
     <li key={uuidv4()}>
       <ItemToDelete car={car} />
@@ -15,9 +24,19 @@ const ToDeleteList = () => {
 
   let content;
   if (isLoading) {
-    content = <div>Is Loading...</div>;
+    content = (
+    <div className='loading-container'>
+      <div className='loading-spinner'></div>
+    </div>);
   } else if (error) {
-    content = <div>something went wrong</div>;
+    content = (
+        <div className="error-wrapper">
+          <div className="error-msg">
+            <h2>Error Occurred</h2>
+            <p>Something went wrong. Please try again later.</p>
+          </div>
+        </div>
+    );
   } else if (cars.length) {
     content = (
       <ul>
