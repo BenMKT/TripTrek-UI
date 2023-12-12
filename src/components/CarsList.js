@@ -19,29 +19,31 @@ const CarsList = () => {
 
   const { cars, isLoading, error } = useSelector((store) => store.cars);
 
-  const [isLeftDisabled, setIsLeftDisabled] = useState(true);
+  const [isLeftDisabled, setIsLeftDisabled] = useState(false);
   const [isRightDisabled, setIsRightDisabled] = useState(false);
   const listContainerRef = useRef(null);
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    if (cars.length) {
-      const button = buttonRef.current;
-      const listContainer = listContainerRef.current;
+    const listContainer = listContainerRef.current;
+
+    if (listContainer) {
       const handleScroll = () => {
         setIsLeftDisabled(listContainer.scrollLeft === 0);
         setIsRightDisabled(
           listContainer.scrollLeft
-        >= listContainer.scrollWidth
-        - listContainer.clientWidth - button.offsetWidth,
+            >= listContainer.scrollWidth - listContainer.clientWidth - 50,
         );
       };
+
       listContainer.addEventListener('scroll', handleScroll);
+
       return () => {
         listContainer.removeEventListener('scroll', handleScroll);
       };
     }
-  }, [car.length]);
+    return cars.length;
+  }, [cars.length]);
 
   const listCars = cars.map((car) => (
     <li key={uuidv4()} className="itemCar">
@@ -53,13 +55,13 @@ const CarsList = () => {
 
   const scrollLeft = () => {
     if (listContainerRef.current) {
-      listContainerRef.current.scrollLeft -= 200; // Adjust the scroll distance as needed
+      listContainerRef.current.scrollLeft -= 200;
     }
   };
 
   const scrollRight = () => {
     if (listContainerRef.current) {
-      listContainerRef.current.scrollLeft += 200; // Adjust the scroll distance as needed
+      listContainerRef.current.scrollLeft += 200;
     }
   };
 
@@ -67,7 +69,7 @@ const CarsList = () => {
   if (isLoading) {
     content = <div>Is loading...</div>;
   } else if (error) {
-    content = <div>something went wrong</div>;
+    content = <div>{error}</div>;
   } else if (cars.length) {
     content = (
       <div className="list-container" id="list-container">
@@ -107,19 +109,9 @@ const CarsList = () => {
         <h1>LATEST MODELS</h1>
         <p>Please select a Car</p>
       </header>
-      <em className="points">.........................</em>
       {content}
     </Container>
   );
 };
-
-// CarsList.propTypes = {
-//   cars: PropTypes.arrayOf (PropTypes.shape ({
-//     id: PropTypes.number,
-//     model: PropTypes.string,
-//     color: PropTypes.string,
-//     year: PropTypes.number
-//   }))
-// };
 
 export default CarsList;

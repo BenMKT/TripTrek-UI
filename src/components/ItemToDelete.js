@@ -7,7 +7,7 @@ import { removeACar } from '../utils/fetchApi';
 import '../styles/itemToDelete.css';
 
 const ItemToDelete = (props) => {
-  const car = props;
+  const { car } = props;
   const dispatch = useDispatch();
 
   return (
@@ -29,6 +29,7 @@ const ItemToDelete = (props) => {
 
 ItemToDelete.propTypes = {
   car: PropTypes.shape({
+    id: PropTypes.number,
     photo: PropTypes.string,
     model: PropTypes.string,
     description: PropTypes.string,

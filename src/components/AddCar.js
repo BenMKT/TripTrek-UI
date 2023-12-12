@@ -14,6 +14,7 @@ const AddCar = () => {
   const [amountPayable, setAmountPayable] = useState('');
   const [duration, setDuration] = useState('');
   const [apr, setApr] = useState('');
+  const [errors, setErros] = useState('');
 
   const { isLoading, error, message } = useSelector((store) => store.cars);
 
@@ -34,9 +35,16 @@ const AddCar = () => {
           apr,
         },
       }));
-      // clean the form
+      setPhoto('');
+      setModel('');
+      setDescription('');
+      setFinanceFee('');
+      setPurchaseFee('');
+      setAmountPayable('');
+      setDuration('');
+      setApr('');
     } catch (error) {
-      setError(error);
+      setErros('Our teams are working to solve the problem');
     }
   };
 
@@ -46,6 +54,7 @@ const AddCar = () => {
         <Card.Body>
           <h2 className="text-center mb-4">Add New Car</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {errors && <Alert variant="danger">{errors}</Alert>}
           {message && <Alert variant="info">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="photo">
