@@ -2,12 +2,15 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReserveCar from './ReserveCar';
 import '../styles/carDetails.css';
 
-const DetailsPage = (props) => {
-  const car = props;
+const DetailsPage = () => {
+  const location = useLocation();
+  console.log(location.state.profile)
+  const car = location.state.profile;
+  console.log(`car:${car}`)
   return (
     <Container className="details-container">
       <div>
@@ -53,7 +56,6 @@ const DetailsPage = (props) => {
                   DISCOVER MORE MODELS
                   <i className="bi bi-chevron-compact-right" />
                 </Link>
-                <strong>Image</strong>
               </div>
               <ReserveCar />
             </div>
