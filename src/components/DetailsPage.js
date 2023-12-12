@@ -1,3 +1,4 @@
+// DetailsPage.js
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
@@ -8,9 +9,8 @@ import '../styles/carDetails.css';
 
 const DetailsPage = () => {
   const location = useLocation();
-  console.log(location.state.profile)
   const car = location.state.profile;
-  console.log(`car:${car}`)
+
   return (
     <Container className="details-container">
       <div>
