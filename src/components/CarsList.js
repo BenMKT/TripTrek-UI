@@ -42,14 +42,17 @@ const CarsList = () => {
         listContainer.removeEventListener('scroll', handleScroll);
       };
     }
+    return () => {};
   }, [cars.length]);
 
   const listCars = cars.map((car) => (
     <li key={uuidv4()} className="itemCar">
       {/* <NavLink className="link-to-details" to={{pathname: '/details', state:{car}}} > */}
-      <NavLink className="link-to-details" 
-        to="/details" 
-        state={{ profile: car }} >
+      <NavLink
+        className="link-to-details"
+        to="/details"
+        state={{ profile: car }}
+      >
         <CarItem car={car} />
       </NavLink>
     </li>

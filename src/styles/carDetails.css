@@ -1,24 +1,24 @@
 .details-container {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 .details-container > div {
-  width: 100%; 
+  width: 100%;
 }
 
 .img-container {
-  width: 100%; 
+  width: 100%;
   border: none;
 }
 
 .car-features {
-  width: 100%; 
+  width: 100%;
 }
 
 .car-features > header {
-  text-align: center; 
+  text-align: center;
 }
 
 .list-group-item {
@@ -27,7 +27,7 @@
 }
 
 .car-features > .card-body > .card-text {
-  text-align: center; 
+  text-align: center;
 }
 
 strong {
@@ -37,23 +37,23 @@ strong {
 .links {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem; 
-  text-align: center; 
+  row-gap: 2rem;
+  text-align: center;
 }
 
 .links > div {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem; 
+  row-gap: 1rem;
 }
 
 .links > button {
-  width: 80%; 
-  align-self: center; 
+  width: 80%;
+  align-self: center;
 }
 
 .link-back {
-  padding: 1rem 2rem; 
+  padding: 1rem 2rem;
   border-radius: 0 0 0 45%;
   background: goldenrod;
   color: white;
@@ -65,8 +65,9 @@ strong {
   .details-container > div {
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
   }
+
   .link-back {
     position: relative;
     right: 50%;
