@@ -1,29 +1,26 @@
-@media screen and (min-width: 500px) and (max-width: 900px) {}
 
-@media screen and (min-width: 900px) { 
-    .controllers-reserve {
-        display: flex;
-        width: 40vw;
-        column-gap: 2rem;
-    }
+.controllers-reserve {
+  display: flex;
+  width: 40vw;
+  column-gap: 2rem;
+}
 
-    .controllers-reserve > select, 
-    .controllers-reserve > button {
-        width: 48%;
-        padding: 1rem;
-    }
+.controllers-reserve > select,
+.controllers-reserve > button {
+  width: 48%;
+  padding: 1rem;
+}
 
-    .modal-controllers {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-content: center;
-        padding: 30vh 0;
-    }
+.modal-controllers {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  padding: 30vh 0;
+}
 
-    .modal-header > button {
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-    }
- }
+.modal-header > button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}

@@ -9,5 +9,4 @@ const Private = ({ children }) => {
   return <Navigate to="/login" />;
 };
 
-
 export default Private;
