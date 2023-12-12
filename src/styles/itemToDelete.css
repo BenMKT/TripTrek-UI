@@ -1,6 +1,8 @@
-@media screen and (min-width: 500px) and (max-width: 900px) {}
+li {
+  list-style: none;
+}
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
   .card-item-to-delete {
     display: flex;
     flex-direction: row;
