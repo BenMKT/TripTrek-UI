@@ -4,7 +4,6 @@ import { Container } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import ItemToDelete from './ItemToDelete';
 import '../styles/itemToDelete.css';
-import SearchBar from './SearchBar';
 
 const ToDeleteList = () => {
   const { cars, isLoading, error } = useSelector((store) => store.cars);
@@ -33,7 +32,6 @@ const ToDeleteList = () => {
       <header>
         <h1>Delete a car</h1>
       </header>
-      <SearchBar />
       <div>
         {content}
       </div>
