@@ -53,12 +53,14 @@ strong {
 }
 
 .link-back {
-  padding: 1rem 2rem;
-  border-radius: 0 0 0 45%;
+  padding: 1rem 1rem 1rem 2.5rem;
+  border-radius: 0 45% 45% 0;
+  margin: auto;
   background: goldenrod;
   color: white;
   font-weight: 700;
-  margin: 0;
+  position: absolute;
+  left: 0;
 }
 
 @media screen and (min-width: 600px) {
@@ -70,6 +72,6 @@ strong {
 
   .link-back {
     position: relative;
-    right: 50%;
+    right: 45%;
   }
 }
