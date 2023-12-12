@@ -69,7 +69,6 @@ const AddCar = () => {
               <Form.Label>Description</Form.Label>
               <Form.Control as="textarea" rows={3} value={description} onChange={(e) => setDescription(e.target.value)} required />
             </Form.Group>
-            {/* Add more form groups for other attributes */}
             <Row>
               <Col>
                 <Form.Group controlId="financeFee">
