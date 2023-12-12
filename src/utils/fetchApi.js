@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const fetchCars = createAsyncThunk('cars/fetchCars', async (thunkAPI) => {
+const fetchCars = createAsyncThunk('cars/fetchCars', async (payload, thunkAPI) => {
   const url = 'http://localhost:3000/api/v1/cars';
   try {
     const { user } = thunkAPI.getState();
@@ -10,9 +10,10 @@ const fetchCars = createAsyncThunk('cars/fetchCars', async (thunkAPI) => {
       Authorization: `${user.auth.token}`,
     };
     const response = await axios.get(url, { headers });
+
     return response.data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(`something went wrong: ${error.response.data}`);
+    return thunkAPI.rejectWithValue('something went wrong');
   }
 });
 
