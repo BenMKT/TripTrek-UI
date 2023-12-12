@@ -42,7 +42,6 @@ const CarsList = () => {
         listContainer.removeEventListener('scroll', handleScroll);
       };
     }
-    return cars.length;
   }, [cars.length]);
 
   const listCars = cars.map((car) => (
