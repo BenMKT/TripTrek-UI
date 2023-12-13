@@ -1,7 +1,13 @@
+.button-left,
+.button-right {
+  display: none;
+}
 
-@media screen and (min-width: 500px) and (max-width: 900px) {}
+header {
+  margin: 0 2rem;
+}
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
   .carsItem-list {
     display: flex;
     flex-direction: row; /* Make the list vertical */
@@ -29,7 +35,7 @@
   .list-container {
     display: flex;
     overflow: hidden;
-    margin-top: 3rem;
+    width: 90%;
   }
 
   .button-right {
@@ -62,7 +68,7 @@
 
   .button-left:focus,
   .button-right:focus {
-    background-color: purple;
+    opacity: 0.4;
     outline: 0.1rem;
   }
 

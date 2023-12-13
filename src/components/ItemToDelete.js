@@ -1,23 +1,40 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import carImg from '../assets/images/car.png';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { removeACar } from '../utils/fetchApi';
+import truncateText from '../utils/functions';
 import '../styles/itemToDelete.css';
 
-const ItemToDelete = () => (
-  <Card className="card-item-to-delete">
-    <Card.Img variant="top" src={carImg} alt="car image" />
-    <Card.Body>
-      <Card.Title>Special title treatment</Card.Title>
-      <Card.Text>
-        With supporting text below as a natural lead-in to additional content.
-      </Card.Text>
-      <Button variant="danger">
-        <i className="bi bi-trash" />
-        <em className="text-delete">Delete</em>
-      </Button>
-    </Card.Body>
-  </Card>
-);
+const ItemToDelete = (props) => {
+  const { car } = props;
+  const dispatch = useDispatch();
+
+  return (
+    <Card className="card-item-to-delete">
+      <Card.Img variant="top" src={car.photo} alt="car image" />
+      <Card.Body>
+        <Card.Title>{car.model}</Card.Title>
+        <Card.Text>
+          {truncateText(car.description, 110)}
+        </Card.Text>
+        <Button variant="danger" onClick={() => { dispatch(removeACar(car.id)); }}>
+          <i className="bi bi-trash" />
+          <em className="text-delete">Delete</em>
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+};
+
+ItemToDelete.propTypes = {
+  car: PropTypes.shape({
+    id: PropTypes.number,
+    photo: PropTypes.string,
+    model: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+};
 
 export default ItemToDelete;

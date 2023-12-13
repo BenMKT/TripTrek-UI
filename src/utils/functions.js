@@ -1,12 +1,8 @@
-const scrollUp = () => {
-  const list = document.getElementById('carsItem-list');
-  const scrollAmount = 1; // change this to adjust the scrolling speed
-  list.scrollTop -= scrollAmount;
-};
-const scrollDown = () => {
-  const list = document.getElementById('carsItem-list');
-  const scrollAmount = 1; // change this to adjust the scrolling speed
-  list.scrollTop += scrollAmount;
+const truncateText = (text, limit) => {
+  if (text.length <= limit) {
+    return text;
+  }
+  return `${text.slice(0, limit)}...`;
 };
 
-export { scrollUp, scrollDown };
+export default truncateText;

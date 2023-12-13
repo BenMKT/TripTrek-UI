@@ -8,5 +8,5 @@ const localStorageMiddleware = () => (next) => (action) => {
 
   return next(action);
 };
-  
-  export default localStorageMiddleware;
+
+export default localStorageMiddleware;
