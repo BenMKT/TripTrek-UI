@@ -47,7 +47,6 @@ const CarsList = () => {
 
   const listCars = cars.map((car) => (
     <li key={uuidv4()} className="itemCar">
-      {/* <NavLink className="link-to-details" to={{pathname: '/details', state:{car}}} > */}
       <NavLink
         className="link-to-details"
         to="/details"
@@ -72,9 +71,20 @@ const CarsList = () => {
 
   let content;
   if (isLoading) {
-    content = <div>Is loading...</div>;
+    content = (
+      <div className="loading-container">
+        <div className="loading-spinner" />
+      </div>
+    );
   } else if (error) {
-    content = <div>{error}</div>;
+    content = (
+      <div className="error-wrapper">
+        <div className="error-msg">
+          <h2>Error Occurred</h2>
+          <p>Something went wrong. Please try again later.</p>
+        </div>
+      </div>
+    );
   } else if (cars.length) {
     content = (
       <div className="list-container" id="list-container">
@@ -111,7 +121,7 @@ const CarsList = () => {
   return (
     <Container className="container-main">
       <header>
-        <h1>LATEST MODELS</h1>
+        <h1>TripTrek</h1>
         <p>Please select a Car</p>
       </header>
       {content}

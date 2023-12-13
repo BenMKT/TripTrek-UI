@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { removeACar } from '../utils/fetchApi';
+import truncateText from '../utils/functions';
 import '../styles/itemToDelete.css';
 
 const ItemToDelete = (props) => {
@@ -16,7 +17,7 @@ const ItemToDelete = (props) => {
       <Card.Body>
         <Card.Title>{car.model}</Card.Title>
         <Card.Text>
-          {car.description}
+          {truncateText(car.description, 110)}
         </Card.Text>
         <Button variant="danger" onClick={() => { dispatch(removeACar(car.id)); }}>
           <i className="bi bi-trash" />
