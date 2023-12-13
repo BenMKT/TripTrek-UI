@@ -3,7 +3,7 @@
 <div align="center">
   <br/>
 
-  <h3><b>Companies metrics</b></h3>
+  <h3><b>TripTrek</b></h3>
 
 </div>
 

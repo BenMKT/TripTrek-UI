@@ -121,7 +121,7 @@ const CarsList = () => {
   return (
     <Container className="container-main">
       <header>
-        <h1>LATEST MODELS</h1>
+        <h1>TripTrek</h1>
         <p>Please select a Car</p>
       </header>
       {content}
