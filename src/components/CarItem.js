@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import truncateText from '../utils/functions';
 import '../styles/carItem.css';
 
 const CarItem = (props) => {
@@ -18,7 +19,7 @@ const CarItem = (props) => {
           <Card.Title>{car.model}</Card.Title>
           <em className="points">....................</em>
           <Card.Text>
-            {car.description}
+            {truncateText(car.description, 30)}
           </Card.Text>
           <ul className="social-media">
             <li>
