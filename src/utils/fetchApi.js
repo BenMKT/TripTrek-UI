@@ -47,4 +47,21 @@ const removeACar = createAsyncThunk('cars/removeACar', async (carId, thunkAPI) =
   }
 });
 
-export { fetchCars, addACar, removeACar };
+const createReservation = createAsyncThunk('reservations/createReservation', async (reservation, thunkAPI) => {
+  const url = `http://localhost:3000/api/v1/cars/${reservation.car_id}/reservations`;
+  try {
+    const { user } = thunkAPI.getState();
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `${user.auth.token}`,
+    };
+    const response = await axios.post(url, reservation, { headers });
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(`something went wrong: ${error.response.data}`);
+  }
+});
+
+export {
+  fetchCars, addACar, removeACar, createReservation,
+};

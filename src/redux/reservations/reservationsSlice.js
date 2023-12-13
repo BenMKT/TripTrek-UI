@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createReservation } from '../../utils/fetchApi';
 
 export const initialState = {
   reservations: [],
   isLoading: false,
   error: '',
+  message: '',
 };
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async () => {
@@ -32,7 +34,23 @@ export const reservationsSlice = createSlice({
         ...state,
         isLoading: false,
         error: action.payload,
-      }));
+      }))
+      .addCase(createReservation.pending, (state) => {
+        state.isLoading = true;
+        state.error = '';
+        state.message = '';
+      })
+      .addCase(createReservation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = '';
+        state.message = 'Reservation created ✔️';
+        state.reservations.push(action.payload);
+      })
+      .addCase(createReservation.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        state.message = '';
+      });
   },
 });
 
