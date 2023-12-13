@@ -72,9 +72,10 @@ const CarsList = () => {
   let content;
   if (isLoading) {
     content = (
-      <div className='loading-container'>
-        <div className='loading-spinner'></div>
-      </div>);
+      <div className="loading-container">
+        <div className="loading-spinner" />
+      </div>
+    );
   } else if (error) {
     content = (
       <div className="error-wrapper">
@@ -83,7 +84,7 @@ const CarsList = () => {
           <p>Something went wrong. Please try again later.</p>
         </div>
       </div>
-  );;
+    );
   } else if (cars.length) {
     content = (
       <div className="list-container" id="list-container">

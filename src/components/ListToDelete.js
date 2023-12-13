@@ -14,7 +14,7 @@ const ToDeleteList = () => {
 
   useEffect(() => {
     dispatch(fetchCars());
-  }, [dispatch, arrCars]);
+  }, [dispatch]);
 
   const listOfCars = cars.map((car) => (
     <li key={uuidv4()}>
@@ -26,7 +26,7 @@ const ToDeleteList = () => {
   if (isLoading) {
     content = (
       <div className="loading-container">
-        <div className="loading-spinner"></div>
+        <div className="loading-spinner" />
       </div>
     );
   } else if (error) {

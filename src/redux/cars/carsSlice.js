@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars, addACar, removeACar } from '../../utils/fetchApi';
-import { useDispatch } from 'react-redux';
 
 const name = 'cars';
 
@@ -41,8 +40,8 @@ const carsSlice = createSlice({
       .addCase(removeACar.fulfilled, (state, action) => {
         state.isLoading = false;
         state.cars = state.cars.filter((car) => car.id !== action.payload);
-        state.message = 'Car deleted ✔️'
-        state.error = ''
+        state.message = 'Car deleted ✔️';
+        state.error = '';
       })
       .addCase(removeACar.rejected, (state, action) => {
         state.isLoading = false;
@@ -52,13 +51,13 @@ const carsSlice = createSlice({
       .addCase(fetchCars.pending, (state) => {
         state.isLoading = true;
         state.message = '';
-        state.error = ''
+        state.error = '';
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.isLoading = false;
         const cars = action.payload;
         state.cars = cars;
-        state.error = ''
+        state.error = '';
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.isLoading = false;

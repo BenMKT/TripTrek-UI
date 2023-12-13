@@ -3,17 +3,17 @@ li {
 }
 
 .card-item-to-delete > img {
-  width: 100%; 
+  width: 100%;
 }
 
 .card-item-to-delete {
   display: flex;
-  flex-direction: column; 
-  height: 100%; 
+  flex-direction: column;
+  height: 100%;
 }
 
 .card-item-to-delete > .card-body > .card-text {
-  text-align: center; 
+  text-align: center;
 }
 
 .container-list-to-delete div > ul {
@@ -28,15 +28,16 @@ li {
 
 @media screen and (min-width: 600px) {
   .card-item-to-delete {
-    flex-direction: row; 
+    flex-direction: row;
     column-gap: 0.5rem;
     height: 25vh;
   }
 
   .card-item-to-delete > img {
-    width: 30%; 
+    width: 30%;
   }
+
   .card-item-to-delete > .card-body > .card-text {
-    text-align: left; 
+    text-align: left;
   }
 }
