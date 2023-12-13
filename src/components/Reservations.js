@@ -18,8 +18,8 @@ const Reservations = () => {
   }, [dispatch]);
   if (isLoading) {
     return (
-      <div className="loading">
-        <div className="spinner" />
+      <div className="loading-container">
+        <div className="loading-spinner" />
       </div>
     );
   }
