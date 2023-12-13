@@ -112,12 +112,16 @@ a {
 }
 
 @keyframes shake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  25%, 75% {
+
+  25%,
+  75% {
     transform: translateX(-5px);
   }
+
   50% {
     transform: translateX(5px);
   }
@@ -138,7 +142,6 @@ a {
   border-radius: 5px;
   animation: shake 0.5s ease-in-out;
 }
-
 
 @media (max-width: 1024px) {
   .Home-container {
