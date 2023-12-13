@@ -6,6 +6,7 @@ import {
   FaBars, FaTimes,
 } from 'react-icons/fa';
 import { TiSocialGooglePlus } from 'react-icons/ti';
+import { Button } from 'bootstrap';
 import { logout } from '../redux/users/userSlice';
 import logo from '../assets/logo.webp';
 import { persistor } from '../redux/store';
@@ -20,11 +21,11 @@ const Navigation = () => {
   };
 
   const { user } = useSelector((store) => store);
-  let about_user;
+  let aboutUser;
   if (user.user) {
-    about_user = (<strong style={{ margin: 'auto' }}>{user.user.user.username}</strong>);
+    aboutUser = (<strong style={{ margin: 'auto' }}>{user.user.user.username}</strong>);
   } else {
-    about_user = (<strong>Please log-in first</strong>);
+    aboutUser = (<strong>Please log-in first</strong>);
   }
 
   const handleLogout = () => {
@@ -37,17 +38,17 @@ const Navigation = () => {
   return (
     <>
       {' '}
-      <button className="nav_btn" type="button" onClick={showNavbar}>
+      <button className="nav_btn" type="button" onClick={showNavbar} aria-label="Show Nav">
         <FaBars />
       </button>
       <div ref={navRef} className="sidebar_container_items">
         <div className="sidebar_container flex">
-          <button className="nav_btn nav_btn_close" type="button" onClick={showNavbar}>
+          <button className="nav_btn nav_btn_close" type="button" onClick={showNavbar} aria-label="Nave close">
             <FaTimes />
           </button>
           <div className="sidebar_container-uperhead flex">
             <div className="sidebar_container-logo"><img src={logo} alt="logo" /></div>
-            <div>{about_user}</div>
+            <div>{aboutUser}</div>
             <div className="sidebar_container-list">
               <ul className="sidebar_list">
                 <li className="sidebar-link">
@@ -101,9 +102,12 @@ const Navigation = () => {
                   style={{
                     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 40, backgroundColor: 'InfoBackground',
                   }}
-                  onClick={handleLogout}
+
                 >
-                  logout
+                  <Button onClick={handleLogout}>
+                    logout
+                  </Button>
+
                 </li>
               </ul>
             </div>

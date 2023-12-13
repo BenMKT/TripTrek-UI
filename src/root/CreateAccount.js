@@ -22,7 +22,7 @@ const Signup = () => {
       }));
       navigate('/login');
     } else {
-      alert('Please fill in all fields');
+      alert('Please fill in all fields');//eslint-disable-line
     }
     setUsername('');
     setEmail('');
