@@ -61,6 +61,7 @@ strong {
   font-weight: 700;
   position: absolute;
   left: 0;
+  top: 10%;
 }
 
 @media screen and (min-width: 600px) {
@@ -71,7 +72,14 @@ strong {
   }
 
   .link-back {
-    position: relative;
-    right: 45%;
+    position: absolute;
+    left: 200px;
+    top: 80%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 770px) {
+  .link-back {
+    left: 10px;
   }
 }

@@ -3,6 +3,10 @@
   display: none;
 }
 
+header {
+  margin: 0 2rem;
+}
+
 @media screen and (min-width: 600px) {
   .carsItem-list {
     display: flex;
