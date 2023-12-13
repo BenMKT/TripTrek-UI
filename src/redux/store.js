@@ -3,7 +3,8 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import carsReducer from './cars/carsSlice';
 import userReducer from './users/userSlice';
-import localStorageMiddleware from '../middleware/localStorage';
+import localStorageMiddleware from '../middleware/localStorage'; // the actual reducer
+import reservationReducer from './reservations/reservationsSlice';
 
 const persistConfig = {
   key: 'root', // key for the persist
@@ -17,8 +18,7 @@ const rootReducer = combineReducers({
   reservations: reservationReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer); // the actual reducer
-import reservationReducer  from './reservations/reservationsSlice';
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
