@@ -186,6 +186,11 @@ You can deploy this project using: GitHub Pages Netifly or Render
 - Twitter: [@Joseph_LSK](https://twitter.com/Joseph_LSK)
 - LinkedIn: [Joseph L Kausi](https://www.linkedin.com/in/joskal/)
 
+👤 **Ghulam Reza Rajabi**
+
+- GitHub: [@ghreza-crypto](https://github.com/ghreza-crypto)
+- LinkedIn: [@Ghulam-reza-rajabi](https://www.linkedin.com/in/ghulam-reza-rajabi/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
