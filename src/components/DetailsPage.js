@@ -57,7 +57,7 @@ const DetailsPage = () => {
                   <i className="bi bi-chevron-compact-right" />
                 </Link>
               </div>
-              <ReserveCar />
+              <ReserveCar car={car} />
             </div>
           </Card.Body>
         </Card>
