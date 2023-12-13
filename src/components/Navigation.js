@@ -6,7 +6,7 @@ import {
   FaBars, FaTimes,
 } from 'react-icons/fa';
 import { TiSocialGooglePlus } from 'react-icons/ti';
-import { Button } from 'bootstrap';
+import { Button } from 'react-bootstrap';
 import { logout } from '../redux/users/userSlice';
 import logo from '../assets/logo.webp';
 import { persistor } from '../redux/store';
@@ -104,7 +104,7 @@ const Navigation = () => {
                   }}
 
                 >
-                  <Button onClick={handleLogout}>
+                  <Button className="btn-logout" onClick={handleLogout}>
                     logout
                   </Button>
 

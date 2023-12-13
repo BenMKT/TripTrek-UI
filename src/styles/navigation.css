@@ -89,6 +89,12 @@ small {
   display: none;
 }
 
+.btn-logout {
+  background: transparent;
+  color: black;
+  border: none;
+}
+
 @media (max-width: 768px) {
   .nav_btn {
     display: flex;
