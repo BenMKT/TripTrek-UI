@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
   // combine the cars and user reducers into a single root reducer
   cars: carsReducer,
   user: userReducer,
+  reservations: reservationReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer); // the actual reducer
@@ -21,11 +22,6 @@ import reservationReducer  from './reservations/reservationsSlice';
 
 const store = configureStore({
   reducer: persistedReducer,
-  reducer: {
-    cars: carsReducer,
-    user: userReducer,
-    reservations: reservationReducer,
-  },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(localStorageMiddleware),
 });
 
