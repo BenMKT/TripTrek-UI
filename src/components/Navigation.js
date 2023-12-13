@@ -22,10 +22,10 @@ const Navigation = () => {
 
   const { user } = useSelector((store) => store);
   let aboutUser;
-  let aboutRole = true
+  let aboutRole = true;
   if (user.user) {
     aboutUser = (<strong style={{ margin: 'auto' }}>{user.user.user.username}</strong>);
-    aboutRole = user.user.user.role === 'admin'
+    aboutRole = user.user.user.role === 'admin';
   } else {
     aboutUser = (<strong>Please log-in first</strong>);
   }
@@ -83,25 +83,25 @@ const Navigation = () => {
                 {aboutRole && (
                   <>
                     <li className="sidebar-link">
-                    <Link
-                      onClick={() => setActiveNav('addCar')}
-                      className={activeNav === 'addCar' ? 'active' : ''}
-                      to="/addCar"
-                    >
-                      Add Car
-                    </Link>
-                  </li>
-                  <li className="sidebar-link">
-                  <Link
-                    onClick={() => setActiveNav('delete')}
-                    className={activeNav === 'delete' ? 'active' : ''}
-                    to="/to_delete"
-                    disabled={user.user.user.role!=='admin'}
-                  >
-                    Delete Car
-                  </Link>
-                </li>
-                </>
+                      <Link
+                        onClick={() => setActiveNav('addCar')}
+                        className={activeNav === 'addCar' ? 'active' : ''}
+                        to="/addCar"
+                      >
+                        Add Car
+                      </Link>
+                    </li>
+                    <li className="sidebar-link">
+                      <Link
+                        onClick={() => setActiveNav('delete')}
+                        className={activeNav === 'delete' ? 'active' : ''}
+                        to="/to_delete"
+                        disabled={user.user.user.role !== 'admin'}
+                      >
+                        Delete Car
+                      </Link>
+                    </li>
+                  </>
                 )}
                 <li
                   className="sidebar-link"
