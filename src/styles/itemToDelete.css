@@ -2,35 +2,41 @@ li {
   list-style: none;
 }
 
+.card-item-to-delete > img {
+  width: 100%; 
+}
+
+.card-item-to-delete {
+  display: flex;
+  flex-direction: column; 
+  height: 100%; 
+}
+
+.card-item-to-delete > .card-body > .card-text {
+  text-align: center; 
+}
+
+.container-list-to-delete div > ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4rem;
+  height: 75vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  transition: transform 0.3s ease;
+}
+
 @media screen and (min-width: 600px) {
   .card-item-to-delete {
-    display: flex;
-    flex-direction: row;
+    flex-direction: row; 
     column-gap: 0.5rem;
     height: 25vh;
   }
 
   .card-item-to-delete > img {
-    width: auto;
-    height: auto;
+    width: 30%; 
   }
-
-  .container-list-to-delete div > ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.4rem;
-    height: 75vh;
-    overflow: hidden;
-    overflow-y: scroll;
-    transition: transform 0.3s ease;
-  }
-
-  ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* just make scrollbar invisible */
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: none;
+  .card-item-to-delete > .card-body > .card-text {
+    text-align: left; 
   }
 }
