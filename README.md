@@ -17,6 +17,7 @@
     - [Key Features ](#key-features-)
   - [🚀 Live Demo](#-live-demo)
   - [🚀 Video Demo](#-video-demo)
+  - [🚀 Kanban Board](#-kanban-board)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -93,9 +94,15 @@ The following stacks were used
 ## 🚀 Video Demo 
 <a name="live-demo" href="#">Video(not available)</a>
 
+## 🚀 Kanban Board 
+[Click me to redirect to view Kanban Board](https://github.com/users/devalibello/projects/5/views/1)
 
+![Kanban Board screenshot](src\assets\images\kanbanboard.png)
 
+[Link to the back-end repo](https://github.com/devalibello/final-capstone-project-api)
 
+Finally we remained a group of 4 people working on this project but implemented most of the functionalities.
+ 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
