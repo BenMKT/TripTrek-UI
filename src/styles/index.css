@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.points {
+  margin: auto;
+  font-weight: 700;
+  color: darkgray;
+  font-family: cursive;
+}
+
+.nav {
+  width: 20%;
+}
+
+.container {
+  margin: auto;
+  padding: 5vh 0;
+}
+
+header {
+  margin-bottom: 5vh;
+}
+
+#details {
+  width: 80%;
+}
+
+.container-root {
+  display: flex;
+}
+
+li {
+  list-style: none;
+}
