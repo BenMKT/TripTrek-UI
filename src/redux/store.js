@@ -7,8 +7,8 @@ import localStorageMiddleware from '../middleware/localStorage'; // the actual r
 import reservationReducer from './reservations/reservationsSlice';
 
 const persistConfig = {
-  key: 'root', 
-  storage, 
+  key: 'root',
+  storage,
 };
 
 const rootReducer = combineReducers({
