@@ -97,11 +97,11 @@ The following stacks were used
 ## 🚀 Kanban Board 
 [Click me to redirect to view Kanban Board](https://github.com/users/devalibello/projects/5/views/1)
 
-![Kanban Board screenshot](src\assets\images\kanbanboard.png)
+<img src='src\assets\images\kanbanboard.png'>
 
 [Link to the back-end repo](https://github.com/devalibello/final-capstone-project-api)
 
-Finally we remained a group of 4 people working on this project but implemented most of the functionalities.
+Finally we remained a group of 5 people working on this project but implemented most of the functionalities.
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
