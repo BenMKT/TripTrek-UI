@@ -96,7 +96,6 @@ const Navigation = () => {
                         onClick={() => setActiveNav('delete')}
                         className={activeNav === 'delete' ? 'active' : ''}
                         to="/to_delete"
-                        disabled={user.user.user.role !== 'admin'}
                       >
                         Delete Car
                       </Link>
