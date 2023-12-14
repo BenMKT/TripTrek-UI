@@ -103,7 +103,7 @@ const ReserveCar = (props) => {
                     <option>Cars</option>
                     {cars
                       && cars.map((car) => (
-                        <option key={uuidv4()} value={car.model}>
+                        <option key={uuidv4()} value={car.id}>
                           {car.model}
                         </option>
                       ))}
