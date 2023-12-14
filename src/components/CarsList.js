@@ -115,7 +115,13 @@ const CarsList = () => {
       </div>
     );
   } else {
-    content = <div>No car yet</div>;
+    content = (
+      <div className="error-wrapper">
+        <div className="error-msg">
+          <h2>No car to display</h2>
+        </div>
+      </div>
+    );
   }
 
   return (
