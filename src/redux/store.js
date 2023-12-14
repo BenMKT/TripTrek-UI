@@ -7,12 +7,11 @@ import localStorageMiddleware from '../middleware/localStorage'; // the actual r
 import reservationReducer from './reservations/reservationsSlice';
 
 const persistConfig = {
-  key: 'root', // key for the persist
-  storage, // storage we're using, localStorage in our case
+  key: 'root', 
+  storage, 
 };
 
 const rootReducer = combineReducers({
-  // combine the cars and user reducers into a single root reducer
   cars: carsReducer,
   user: userReducer,
   reservations: reservationReducer,
