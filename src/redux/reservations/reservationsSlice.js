@@ -12,7 +12,7 @@ export const initialState = {
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async () => {
   try {
-    const response = await axios.get(BASE_URL+'api/v1/cars/1/reservations');
+    const response = await axios.get(`${BASE_URL}api/v1/cars/1/reservations`);
     return response.data;
   } catch (error) {
     throw error.response.data.error;

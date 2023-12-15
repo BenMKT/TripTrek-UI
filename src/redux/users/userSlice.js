@@ -4,7 +4,7 @@ import BASE_URL from '../constants';
 
 export const signupUser = createAsyncThunk('user/signupUser', async (user, { rejectWithValue }) => {
   try {
-    const response = await axios.post(BASE_URL+'users', user);
+    const response = await axios.post(`${BASE_URL}users`, user);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data.error);
@@ -12,7 +12,7 @@ export const signupUser = createAsyncThunk('user/signupUser', async (user, { rej
 });
 
 export const loginUser = createAsyncThunk('user/loginUser', async (username) => {
-  const response = await axios.post(BASE_URL+'/users/sign_in', {
+  const response = await axios.post(`${BASE_URL}/users/sign_in`, {
     user: {
       username,
     },
