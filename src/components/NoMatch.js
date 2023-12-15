@@ -1,14 +1,9 @@
+const NoMatch = () => (
+  <div>
+    <h1>Oops!</h1>
+    <p>Sorry, No such rout find</p>
 
-
-const NoMatch = () => {
-  
-  return (
-    <div>
-      <h1>Oops!</h1>
-      <p>Sorry, No such rout find</p>
-      
-    </div>
-  );
-};
+  </div>
+);
 
 export default NoMatch;

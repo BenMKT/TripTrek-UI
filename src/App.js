@@ -35,7 +35,6 @@ const AppContent = () => {
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
   const isSignupPage = location.pathname === '/signup';
- 
 
   const renderSidebar = !isLoginPage && !isSignupPage;
 
@@ -52,7 +51,7 @@ const AppContent = () => {
         <Route path="/details" element={<Private><DetailsPage /></Private>} />
         <Route path="reserveform" element={<Private><ReserveCar /></Private>} />
         <Route path="myreservations" element={<Private><Reservations /></Private>} />
-        <Route path="*" element={<Private><NoMatch/></Private>} />
+        <Route path="*" element={<Private><NoMatch /></Private>} />
       </Routes>
     </>
   );
