@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import BASE_URL from '../redux/constants';
 
 const fetchCars = createAsyncThunk('cars/fetchCars', async (payload, thunkAPI) => {
-  const url = 'http://localhost:3000/api/v1/cars';
+  const url = BASE_URL+'api/v1/cars';
   try {
     const { user } = thunkAPI.getState();
     const headers = {
@@ -18,7 +19,7 @@ const fetchCars = createAsyncThunk('cars/fetchCars', async (payload, thunkAPI) =
 });
 
 const addACar = createAsyncThunk('cars/addACar', async (car, thunkAPI) => {
-  const url = 'http://localhost:3000/api/v1/cars';
+  const url = BASE_URL+'api/v1/cars';
   try {
     const { user } = thunkAPI.getState();
     const headers = {
@@ -33,7 +34,7 @@ const addACar = createAsyncThunk('cars/addACar', async (car, thunkAPI) => {
 });
 
 const removeACar = createAsyncThunk('cars/removeACar', async (carId, thunkAPI) => {
-  const url = `http://localhost:3000/api/v1/cars/${carId}`;
+  const url = BASE_URL+`api/v1/cars/${carId}`;
   try {
     const { user } = thunkAPI.getState();
     const headers = {
@@ -48,7 +49,7 @@ const removeACar = createAsyncThunk('cars/removeACar', async (carId, thunkAPI) =
 });
 
 const createReservation = createAsyncThunk('reservations/createReservation', async (reservation, thunkAPI) => {
-  const url = `http://localhost:3000/api/v1/cars/${reservation.car_id}/reservations`;
+  const url = BASE_URL+`api/v1/cars/${reservation.car_id}/reservations`;
   try {
     const { user } = thunkAPI.getState();
     const headers = {
