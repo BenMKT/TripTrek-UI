@@ -11,7 +11,12 @@ import '../styles/reservation.css';
 
 const Reservations = () => {
   const { reservations, isLoading, error } = useSelector((store) => store.reservations);
+  const { cars } = useSelector((store) => store.cars);
+  const { user } = useSelector((store) => store);
   const dispatch = useDispatch();
+  const userId = user.user.user.id;
+
+  const ownsReservations = reservations.filter((reservation) => reservation.user_id === userId);
 
   useEffect(() => {
     dispatch(getReservations());
@@ -52,32 +57,29 @@ const Reservations = () => {
         modules={[Navigation, Pagination]}
         className="mySwiper"
       >
-        {reservations.map((reservation) => (
-          <SwiperSlide className="reservation-info flex" key={reservation.id}>
-            <div className="reservation-imag flex">
-              <img className="photo" src={reservation.photo} alt={reservation.name} />
-              <h2 className="text-center">
-                {reservation.name}
-              </h2>
-            </div>
-            <div className="reserve-details">
-              <p>
-                <strong>Address:&ensp;</strong>
-                {reservation.city}
-              </p>
-              <p>
-                <strong>Date:&ensp;</strong>
-                {reservation.date}
-              </p>
-              <p>
-                <strong>Time:&ensp;</strong>
-                {new Date(reservation.date).getHours()}
-                :
-                {new Date(reservation.date).getMinutes()}
-              </p>
-            </div>
-          </SwiperSlide>
-        ))}
+        {ownsReservations.map((reservation) => {
+          const reservedCar = cars.filter((car) => car.id === reservation.car_id);
+          return (
+            <SwiperSlide className="reservation-info flex" key={reservation.id}>
+              <div className="reservation-imag flex">
+                <img className="photo" src={reservedCar[0].photo} alt={reservedCar[0].model} />
+                <h2 className="text-center">
+                  {reservedCar[0].model}
+                </h2>
+              </div>
+              <div className="reserve-details">
+                <p>
+                  <strong>City:&ensp;</strong>
+                  {reservation.city}
+                </p>
+                <p>
+                  <strong>Date:&ensp;</strong>
+                  {reservation.date}
+                </p>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
