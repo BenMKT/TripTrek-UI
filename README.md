@@ -89,7 +89,7 @@ The following stacks were used
 
 
 ## 🚀 Live Demo 
-<a name="live-demo" href="#">Demo(not available)</a>
+<a name="live-demo" href="https://final-capstone-project-frontend.onrender.com/login">Demo</a>
 
 ## 🚀 Video Demo 
 <a name="live-demo" href="#">Video(not available)</a>
