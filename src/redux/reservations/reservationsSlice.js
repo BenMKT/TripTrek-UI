@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { createReservation } from '../../utils/fetchApi';
+import BASE_URL from '../constants';
 
 export const initialState = {
   reservations: [],
@@ -11,7 +12,7 @@ export const initialState = {
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/v1/cars/1/reservations');
+    const response = await axios.get(`${BASE_URL}api/v1/cars/1/reservations`);
     return response.data;
   } catch (error) {
     throw error.response.data.error;
