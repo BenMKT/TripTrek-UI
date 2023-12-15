@@ -34,7 +34,7 @@ const Navigation = () => {
     dispatch(logout());
     persistor.purge();// remove persisted infos
     localStorage.removeItem('username');
-    window.location.href = '/home';
+    window.location.href = '/login';
   };
 
   return (

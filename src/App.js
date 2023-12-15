@@ -17,6 +17,7 @@ import Navigation from './components/Navigation';
 import AddCar from './components/AddCar';
 import ReserveCar from './components/ReserveCar';
 import Reservations from './components/Reservations';
+import NoMatch from './components/NoMatch';
 
 const App = () => {
   const token = localStorage.getItem('token');
@@ -34,6 +35,7 @@ const AppContent = () => {
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
   const isSignupPage = location.pathname === '/signup';
+ 
 
   const renderSidebar = !isLoginPage && !isSignupPage;
 
@@ -50,6 +52,7 @@ const AppContent = () => {
         <Route path="/details" element={<Private><DetailsPage /></Private>} />
         <Route path="reserveform" element={<Private><ReserveCar /></Private>} />
         <Route path="myreservations" element={<Private><Reservations /></Private>} />
+        <Route path="*" element={<Private><NoMatch/></Private>} />
       </Routes>
     </>
   );
