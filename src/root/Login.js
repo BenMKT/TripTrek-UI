@@ -15,12 +15,12 @@ const Login = () => {
     try {
       await dispatch(loginUser(username));
       setError(
-        'Login successfull! Fetching your data...If this alert disappears, please log-in again.',
+        'Login successfull! Redirecting...If this alert disappears before , please log-in again.',
       );
       // Delay the navigation for a moment to allow the user to see the success message
       setTimeout(() => {
         navigate('/home');
-      }, 90000); // You can adjust the delay time (in milliseconds) as needed
+      }, 60000); // You can adjust the delay time (in milliseconds) as needed
     } catch (error) {
       setError('Login failed. Please sign up first.');
     }
