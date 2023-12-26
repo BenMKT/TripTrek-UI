@@ -62,10 +62,22 @@ const Reservations = () => {
           return (
             <SwiperSlide className="reservation-info flex" key={reservation.id}>
               <div className="reservation-imag flex">
-                <img className="photo" src={reservedCar[0].photo} alt={reservedCar[0].model} />
-                <h2 className="text-center">
-                  {reservedCar[0].model}
-                </h2>
+                { reservedCar.length && (
+                  <>
+                    <img className="photo" src={reservedCar[0].photo} alt={reservedCar[0].model} />
+                    <h2 className="text-center">
+                      {reservedCar[0].model}
+                    </h2>
+                  </>
+                )}
+                { !reservedCar.length && (
+                <>
+                  <img className="photo" src="" alt="" />
+                  <p className="text-center">
+                    Car not available
+                  </p>
+                </>
+                )}
               </div>
               <div className="reserve-details">
                 <p>
