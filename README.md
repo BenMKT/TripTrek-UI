@@ -88,7 +88,7 @@ The following stacks were used
 
 
 ## 🚀 Live Demo 
-<a name="live-demo" href="https://https://triptrek-7690.onrender.com/login">Demo</a>
+<a name="live-demo" href="https://https://triptrek-7690.onrender.com">Demo</a>
 
 [Link to the back-end repo](https://github.com/BenMKT/TripTrek-API)
 
