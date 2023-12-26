@@ -90,12 +90,12 @@ The following stacks were used
 ## 🚀 Live Demo 
 <a name="live-demo" href="https://final-capstone-project-frontend.onrender.com/login">Demo</a>
 
+[Link to the back-end repo](https://github.com/BenMKT/TripTrek-API)
+
 ## 🚀 Kanban Board 
 [Click me to redirect to view Kanban Board](https://github.com/users/devalibello/projects/5/views/1)
 
 <img src='src\assets\images\kanbanboard.png'>
-
-[Link to the back-end repo](https://github.com/BenMKT/TripTrek-API)
 
 Finally we remained a group of 5 people working on this project but implemented most of the functionalities.
  
