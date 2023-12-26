@@ -15,7 +15,7 @@ const Login = () => {
     try {
       await dispatch(loginUser(username));
       setError(
-        'Login successful!  Redirecting.....  If this alert disappears before , please log-in again.',
+        'Login successful!  Redirecting.....  If this alert disappears before, please log-in again.',
       );
       // Delay the navigation for a moment to allow the user to see the success message
       setTimeout(() => {
