@@ -99,7 +99,7 @@ The following stacks were used
 
 <img src='src\assets\images\kanbanboard.png'>
 
-[Link to the back-end repo](https://github.com/devalibello/final-capstone-project-api)
+[Link to the back-end repo](https://github.com/BenMKT/TripTrek-API)
 
 Finally we remained a group of 5 people working on this project but implemented most of the functionalities.
  
