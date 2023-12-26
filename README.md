@@ -137,7 +137,7 @@ Before to run the program, verify that you have Ruby installed on your OS runnin
 ### Usage
 
 To run the project follow these steps :
-1. Run the server :
+1. Run the back-end/server :
    1. Open your terminal and navigate to the root directory of your project
    2. Run `bundle install`
    3. Run `EDITOR="code --wait" rails credentials:edit`
@@ -149,9 +149,11 @@ To run the project follow these steps :
    9. Delete your `credential.yml` file
    10. Run `rails credentials:edit`
    11. Run ```$ rails server``` again
+
 2. Run the front-end :
-   1. Run the command ```$npm start ``` in your terminal.
-   2. Your default browser should open automatically and display your React app
+   1. Run the command ```$npm install ``` in your terminal.
+   2. Then run the command ```$npm start ``` in your terminal.
+   3. Your default browser should open automatically and display your React app
 
 ### Run tests
 
