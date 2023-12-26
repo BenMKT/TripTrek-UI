@@ -90,7 +90,7 @@ The following stacks were used
 ## 🚀 Live Demo 
 <a name="live-demo" href="https://final-capstone-project-frontend.onrender.com/login">Demo</a>
 
-[Link to the back-end repo](https://github.com/devalibello/final-capstone-project-api)
+[Link to the back-end repo](https://github.com/BenMKT/TripTrek-API)
 
 ## 🚀 Kanban Board 
 [Click me to redirect to view Kanban Board](https://github.com/users/devalibello/projects/5/views/1)
