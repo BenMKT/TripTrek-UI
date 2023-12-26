@@ -3,7 +3,7 @@
 <div align="center">
   <br/>
 
-  <h3><b>TripTrek</b></h3>
+  <h3><b>TripTrek-UI</b></h3>
 
 </div>
 
@@ -16,7 +16,6 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo](#-live-demo)
-  - [🚀 Video Demo](#-video-demo)
   - [🚀 Kanban Board](#-kanban-board)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -91,15 +90,12 @@ The following stacks were used
 ## 🚀 Live Demo 
 <a name="live-demo" href="https://final-capstone-project-frontend.onrender.com/login">Demo</a>
 
-## 🚀 Video Demo 
-<a name="live-demo" href="#">Video(not available)</a>
+[Link to the back-end repo](https://github.com/devalibello/final-capstone-project-api)
 
 ## 🚀 Kanban Board 
 [Click me to redirect to view Kanban Board](https://github.com/users/devalibello/projects/5/views/1)
 
 <img src='src\assets\images\kanbanboard.png'>
-
-[Link to the back-end repo](https://github.com/devalibello/final-capstone-project-api)
 
 Finally we remained a group of 5 people working on this project but implemented most of the functionalities.
  
