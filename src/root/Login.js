@@ -14,11 +14,13 @@ const Login = () => {
     e.preventDefault();
     try {
       await dispatch(loginUser(username));
-      setError('Login successfull! Redirecting to home...');
+      setError(
+        'Login successfull! Fetching your data...If this alert disappears, please log-in again.',
+      );
       // Delay the navigation for a moment to allow the user to see the success message
       setTimeout(() => {
         navigate('/home');
-      }, 10000); // You can adjust the delay time (in milliseconds) as needed
+      }, 30000); // You can adjust the delay time (in milliseconds) as needed
     } catch (error) {
       setError('Login failed. Please sign up first.');
     }
