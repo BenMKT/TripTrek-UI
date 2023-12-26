@@ -8,14 +8,19 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await dispatch(loginUser(username));
-      navigate('/home');
+      setError('Login successfull! Redirecting to home...');
+      // Delay the navigation for a moment to allow the user to see the success message
+      setTimeout(() => {
+        navigate('/home');
+      }, 10000); // You can adjust the delay time (in milliseconds) as needed
     } catch (error) {
-      // eslint-disable-next-line no-console
+      setError('Login failed. Please sign up first.');
     }
   };
 
@@ -24,6 +29,8 @@ const Login = () => {
       <div className="login-container">
         <h2 className="login-title">Login</h2>
         <form onSubmit={handleSubmit}>
+          {/* Display error message if there is an error */}
+          {error && <p className="login-message">{error}</p>}
           <lord-icon
             src="https://cdn.lordicon.com/ljvjsnvh.json"
             trigger="loop"
@@ -32,7 +39,12 @@ const Login = () => {
             state="morph"
             style={{ width: '180px', height: '180px' }}
           />
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+          />
           <button type="submit">Log In</button>
         </form>
         <p>
