@@ -16,7 +16,6 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo](#-live-demo)
-  - [🚀 Video Demo](#-video-demo)
   - [🚀 Kanban Board](#-kanban-board)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -90,9 +89,6 @@ The following stacks were used
 
 ## 🚀 Live Demo 
 <a name="live-demo" href="https://final-capstone-project-frontend.onrender.com/login">Demo</a>
-
-## 🚀 Video Demo 
-<a name="live-demo" href="#">Video(not available)</a>
 
 ## 🚀 Kanban Board 
 [Click me to redirect to view Kanban Board](https://github.com/users/devalibello/projects/5/views/1)
